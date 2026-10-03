@@ -1,0 +1,19 @@
+services:
+  stalzone:
+    build: .
+    container_name: stalzone
+    ports:
+      - "8080:8080"
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - stalzone-data:/app/data
+      - stalzone-logs:/app/logs
+    restart: unless-stopped
+    # Бюджет памяти прод-сервера: 0.5 ГБ
+    mem_limit: 480m
+
+volumes:
+  stalzone-data:
+  stalzone-logs:

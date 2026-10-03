@@ -1,0 +1,108 @@
+# Машинный конфиг отслеживаемых артефактов (hot reload).
+# category: liquid | illiquid; min_quality: 0..5; upgrades: уровни заточки;
+# profit_threshold_pct: явный порог профита (имеет приоритет над таблицей качества).
+artifacts:
+  - {item_id: "y5vw", name: "Скорлупа", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "gyjg", name: "Кислотный кристалл", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "5r04", name: "Флегма", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "9nml", name: "Репях", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "jkj4", name: "Ряска", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "zy7y", name: "Ежик", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "zyv9", name: "Кисель", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "1kdg", name: "Липкий репях", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "y54z", name: "Гиря", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "1k96", name: "Трещотка", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "9nd0", name: "Призрачный кристалл", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "wg3p", name: "Дезинтегратор", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "gyn0", name: "Комета", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "4lkp", name: "Лампочка Ильича", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "zy32", name: "Батарейка", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 50}
+  - {item_id: "wgr3", name: "Темный кристалл", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 50}
+  - {item_id: "9n1w", name: "Ягодка", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "y5m3", name: "Криоген", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "9nvy", name: "Вехотка", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "wg62", name: "Белая роза", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "gyv6", name: "Роза", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "1k4q", name: "Сало", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "gypg", name: "Плод", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "5r34", name: "Сердце", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "gyln", name: "Иней", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "gy10", name: "Красный кристалл", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "zyqk", name: "Хрусталь", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 200}
+  - {item_id: "qo94", name: "Куриный бог", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 50}
+  - {item_id: "4lrn", name: "Висмут", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 50}
+  - {item_id: "5rm0", name: "Ключик", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 50}
+  - {item_id: "y5ro", name: "Яйцо", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "p6qz2", name: "Черный Регалий", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "qo59", name: "Жвачка", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "wgvd", name: "Чернильница", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "kqj3", name: "Улитка", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "wgzd", name: "Остов", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "4l1r", name: "Протоцибуля", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "zypm", name: "Золотистая Прима", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "5rzo", name: "Корка", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "q1lk", name: "Жабры", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "51l0", name: "Харя", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "yq3o", name: "Личинка", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "w4no", name: "Канифоль", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "9n7z", name: "Рубик", category: illiquid, min_quality: 1, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "zymn", name: "Смалец", category: illiquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "1kw1", name: "Кристалл изнанки", category: illiquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: 30}
+  - {item_id: "5rd1", name: "Стальной ежик", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "ljpq", name: "Многогранник", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "g34p", name: "Юла", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "4lml", name: "Змеиный глаз", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "5rwq", name: "Осколок", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "gyq5", name: "Спираль", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "kqr0", name: "Гелий", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "wg53", name: "Атом", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "y5w3", name: "Призма", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "qo06", name: "Трансформатор", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "zyrm", name: "Зеркало", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "gyg5", name: "Креветка", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "y5jk", name: "Жильник", category: liquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "y5yw", name: "Гантель", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "zyly", name: "Цибуля", category: liquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "kqgy", name: "Браслет", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "zyo9", name: "Болотный гнилец", category: liquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "5rpq", name: "Янтарник", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "ljrj", name: "Радиатор", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "4l7p", name: "Гребешок", category: liquid, min_quality: 4, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "jkml", name: "Глаз бури", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "y5k0", name: "Вихрь", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "qoq6", name: "Солнце", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "wglp", name: "Ветка калины", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "wgwz", name: "Фаренгейт", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "rn1z", name: "Опал", category: liquid, min_quality: 1, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "7z77", name: "Желе", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "k3rv", name: "Чертов еж", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "j306", name: "Всполох", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "rnkl", name: "Силки", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "q10k", name: "Звено", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "6goy", name: "Петля", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "j3p6", name: "Смольник", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "49zn", name: "Нервяк", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "zjzn", name: "Полено", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "k3yv", name: "Обруч", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "gy7p", name: "Сетчатка", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "jky6", name: "Изюм", category: liquid, min_quality: 1, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "kq4v", name: "Темная калина", category: liquid, min_quality: 1, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "qodk", name: "Бубльгум", category: liquid, min_quality: 1, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "w4jo", name: "Черная дыра", category: liquid, min_quality: 3, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "wgko", name: "Роза изнанки", category: liquid, min_quality: 2, upgrades: [0, 15], profit_threshold_pct: null}
+  - {item_id: "04yr", name: "Виток", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "gy06", name: "Ершик", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "5r5g", name: "Ледяной ежик", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "lj0j", name: "Катушка", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "1kv2", name: "Прима", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "4lpo", name: "Статик", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "5rg1", name: "Проклятая Роза", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "qokj", name: "Тыква", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "5rog", name: "Пиявка", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "jkq7", name: "Магма", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "kqoj", name: "Каблук", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "kqp0", name: "Жар-птица", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "ljn2", name: "Морозец", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "rnvg", name: "Шишка", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "y5nz", name: "Волчьи слезы", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified
+  - {item_id: "zyw2", name: "Огонек", category: illiquid, min_quality: 0, upgrades: [0, 15], profit_threshold_pct: null}  # unclassified

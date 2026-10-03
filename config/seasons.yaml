@@ -1,0 +1,64 @@
+# Сезонность предметов. Диапазоны дат MM-DD (включительно, поддерживают переход через Новый год).
+# active: false отключает сезон без удаления. custom_events — разовые/повторяющиеся события.
+seasons:
+  - name: winter
+    start: "12-01"
+    end: "02-29"
+    active: true
+    item_ids:
+      - "rn1z"   # Опал
+      - "wgwz"   # Фаренгейт
+      - "y5k0"   # Вихрь
+      - "5rzo"   # Корка
+      - "jkml"   # Глаз бури
+      - "qo94"   # Куриный бог
+      - "zyqk"   # Хрусталь
+      - "gyln"   # Иней
+  - name: spring
+    start: "03-01"
+    end: "05-31"
+    active: true
+    item_ids:
+      - "4lrn"   # Висмут
+      - "9n7z"   # Рубик
+      - "zymn"   # Смалец
+      - "gy7p"   # Сетчатка
+      - "jky6"   # Изюм
+      - "kq4v"   # Темная калина
+      - "1kw1"   # Кристалл изнанки
+      - "qodk"   # Бубльгум
+      - "wgko"   # Роза изнанки
+      - "5rm0"   # Ключик
+      - "y5ro"   # Яйцо
+      - "k3rv"   # Чертов еж
+      - "7z77"   # Желе
+      - "j306"   # Всполох
+      - "q10k"   # Звено
+      - "6goy"   # Петля
+  - name: summer
+    start: "06-01"
+    end: "08-31"
+    active: true
+    item_ids:
+      - "q1lk"   # Жабры
+      - "j3p6"   # Смольник
+      - "w4no"   # Канифоль
+      - "49zn"   # Нервяк
+  - name: autumn
+    start: "09-01"
+    end: "11-30"
+    active: true
+    item_ids:
+      - "rnkl"   # Силки
+      - "51l0"   # Харя
+      - "yq3o"   # Личинка
+      - "zjzn"   # Полено
+      - "w4jo"   # Черная дыра
+
+custom_events: []
+  # пример:
+  # - name: "halloween"
+  #   start: "10-25"
+  #   end: "11-05"
+  #   active: true
+  #   item_ids: ["qokj"]  # Тыква

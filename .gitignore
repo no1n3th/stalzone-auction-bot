@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Env & runtime data
+.env
+data/*.db
+data/*.db-journal
+data/items_db.json
+logs/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# secrets & WAL
+.env*
+data/*.db-wal
+data/*.db-shm
+.venv/

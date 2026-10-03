@@ -1,0 +1,47 @@
+STALZONE BOT 3.1.1 — ФИНАЛЬНЫЙ ОТЧЁТ ЗБТ
+==========================================
+Сборка: 2026-09-30. Архив = изменённые/новые файлы поверх checkout (PATCHES.txt).
+
+ID        | СТАТУС   | ЧТО ИЗМЕНИЛОСЬ
+----------+----------+--------------------------------------------------------------
+P0-2 ост. | ИСПРАВЛЕНО | pending() чтит next_attempt_at (misc.py); _send_batch не
+          |          | дублирует в DLQ outbox-payload; _send_one ретраит только
+          |          | упавшие вебхуки (discord.py). Тест: tests/test_outbox_backoff.py
+P0-5      | ОК (было) | embed словарём, thumbnail по https, цвет редкости, format_money
+P0-1/3/4  | ОК (было) | плоский listing, карантин 4xx, sold_at+006 миграция
+P1-13     | ИСПРАВЛЕНО | LOG_JSON=false -> ConsoleRenderer (logging_config.py)
+P1-9д     | ИСПРАВЛЕНО | границы схем: item_id<=32, note<=500, amount<=1e6,
+          |          | allow_inf_nan=False (schemas.py)
+P1-8/9    | ОК (было) | lock до commit; 404/409 разведены в сделках
+P2        | ИСПРАВЛЕНО | metrics_token + forwarded_allow_ips (settings.py,
+          |          | читаются в web/app.py и uvicorn Config); guards удаления
+          |          | пользователя (auth.py + users.count_admins +
+          |          | deals.delete_for_user); глобальный IP-лимит входа;
+          |          | utils/public_guard.py на /api/market|daily-prices|forecast
+P2 CI     | ИСПРАВЛЕНО | pip-audit/npm audit без || true; + npm run lint/test (ci.yml)
+P3-2      | ИСПРАВЛЕНО | AlertManager(enabled=...) — очередь только с потребителем
+P3-хайджин| ИСПРАВЛЕНО | requirements: -Jinja2; dev: +freezegun,+respx; pyproject:
+          |          | -matplotlib/-numpy; .env.example создан
+F-4       | ИСПРАВЛЕНО | flash() возвращает строку результата DLQ (AdminPage.tsx)
+F-2/F-3   | ОК (было) | backoff reset в onopen+jitter; все точки прогноза
+F-7/§4.6  | ИСПРАВЛЕНО | «Текущие лоты» -> «Рынок» (MarketPage.tsx)
+a11y      | ИСПРАВЛЕНО | LiveFeedWidget: conditional render + aria-expanded;
+          |          | Layout: футер без «·»
+Инфра     | ОК        | Dockerfile без data/items_db.json; compose.prod требует
+          |          | DB_PASSWORD; версия 3.1.0 единая (config/version.py)
+
+ИЗВЕСТНЫЕ ОСТАТКИ (см. PATCHES.txt):
+- 3 устаревших теста в git нуждаются в правке (atomic-listing, close_deal, 006).
+- frontend/package-lock.json — из git (нужен для npm ci в Docker).
+- P1-10: ConfigRepository/FeatureFlagsRepository рантаймом не читаются —
+  решение владельца: подключить к воркерам или убрать UI.
+- P1-7 частично: spread считается по окну, включающему продажи до инвалидации
+  (TTL-фолбэк есть).
+- P3-6: mypy по-прежнему исключает migrations/scripts/main.py.
+- Дизайн-чек-лист 4.7 не закрыт полностью (старые CSS-классы остались).
+
+НЕ ПОДТВЕРЖДЕНО (нет среды/сети):
+- Прогон pytest/ruff/mypy/npm — только у вас или в CI.
+- Живые данные dapi (формат time) и путь иконок в stalcraft-database —
+  по прежнему [ПРОВЕРИТЬ] фикстурами (tests/fixtures/).
+- Поведение uvicorn-сигналов на Windows.

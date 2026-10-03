@@ -1,0 +1,57 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install deps
+        run: |
+          pip install -r requirements.txt
+          pip install ruff black mypy types-PyYAML pytest-asyncio pytest-cov hypothesis pip-audit
+      - name: Linters
+        run: ruff check . && black --check .
+      - name: Types
+        run: mypy .
+      - name: Tests (SQLite)
+        run: pytest -q -p no:randomly
+      # AUDIT B2: PostgreSQL 16 job (TZ-sensitive SQL is verified here).
+      - name: Start PostgreSQL 16
+        run: |
+          docker run -d --name pg -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:16
+          for i in $(seq 1 30); do docker exec pg pg_isready -U postgres && break; sleep 1; done
+      - name: Tests (PostgreSQL 16)
+        run: pip install asyncpg && pytest -q -p no:randomly --db postgresql
+        env:
+          DATABASE_URL: postgresql+asyncpg://postgres:postgres@127.0.0.1:5432/postgres
+      - name: Audit deps
+        run: pip-audit  # P2: fail on known vulnerabilities (was "|| true")
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install & gates
+        run: |
+          cd frontend
+          npm ci
+          npm run typecheck
+          npm run build
+          npm run lint  # P2: lint gate was missing
+          npm test      # P2: vitest gate was missing
+      - name: Audit deps
+        run: cd frontend && npm audit --audit-level=high  # P2: was "|| true"

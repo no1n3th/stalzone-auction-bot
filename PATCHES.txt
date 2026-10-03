@@ -1,0 +1,52 @@
+СБОРКА АРХИВА (stalzone-bot-3.1.1)
+=================================
+
+1) Распакуйте архив ПОВЕРХ чистого checkout репозитория:
+       unzip stalzone-bot-3.1.1.zip -d stalzone-bot/
+       cd stalzone-bot
+   Все НЕвошедшие в архив файлы (README.md, RUNBOOK.md, docs/, остальной
+   frontend/, frontend/package-lock.json, tests кроме новых, .pre-commit-config.yaml)
+   берутся из git без изменений.
+
+2) Правки устаревших тестов репозитория (иначе pytest красный):
+   a) tests/test_api_client.py::test_sync_items_db_atomic — тест на старый
+      вложенный формат листинга. Заменить фейк-ответ на:
+          json=[{"data": "data/NEW1", "name": {"lines": {"ru": "Новый"}}}]
+      и ожидание: assert result == {"new1": {"name": "Новый"}}
+   b) tests/test_misc_repos.py — DealsEngine.close_deal удалён (P1-9г);
+      переписать тест на DealsRepository(session).close(deal_id, "alice",
+      version=1, sell_price=1000.0).
+   c) tests/test_legacy_adoption.py — ожидание версии "004_outbox" заменить
+      на "006_history_effective".
+
+3) frontend/package-lock.json ОБЯЗАТЕЛЕН для Docker-сборки (npm ci): возьмите
+   из git-истории. Затем: cd frontend && npm ci && npm run build.
+
+4) 4 обновлённых frontend-файла в архиве помечены комментариями
+   (F-4, F-2, F-3, a11y). Если typecheck укажет на несовпадение имён
+   классов/типов с вашей версией api.ts/index.css — перенесите правку
+   (1-3 строки в каждом файле) на вашу версию.
+
+5) Гейты:  ruff check . && black --check . && mypy . && pytest
+            cd frontend && npm run typecheck && npm run lint && npm test && npm run build
+
+6) Перед запуском: cp .env.example .env и заполните CLIENT_ID/CLIENT_SECRET
+   (https://stalcrafthub.ru/dev). Без них сканер уходит в auth_backoff,
+   веб работает.
+
+Что вошло в архив: см. REPORT.txt (таблица ID | статус | что изменилось).
+
+=== ДОБАВЛЕНО В 3.1.1 (админ-флаги, иконки, P1-7) ===
+- P1-10: флаги админки теперь реально работают (D10): config_reload_worker
+  применяет scanner_enabled / history_sync_enabled / meta_monitor_enabled /
+  season_monitor_enabled / charts_enabled / discord_enabled каждые 30 с.
+  Новый тест: tests/test_admin_flags_runtime.py.
+- Иконки: sync_items_db сохраняет поле `icon` листинга; embed строит URL
+  .../main/ru/<icon> (D11). Кэш items_db.json пересоздастся при следующем
+  синке (24 ч) — для немедленного обновления удалите data/items_db.json.
+- P1-7: window_spread_pct(..., since=...) — спред только по продажам после
+  инвалидации; штамп берётся из invalid:*-ключа (D12).
+- Проверено чтением: test_workers_container (git) вызывает воркеров со
+  стаб-контейнером — config_reload_worker теперь дергает container.db на
+  каждом тике; если стаб без db, ошибка логируется и цикл продолжается
+  (поведение не ломается, но в тесте может появиться warning-строка).

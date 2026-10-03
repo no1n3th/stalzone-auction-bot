@@ -1,0 +1,50 @@
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501", "RUF001", "RUF002", "RUF003", "B017"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["config", "database", "models", "scanner", "analytics", "api", "notify", "deals", "utils", "metrics", "web"]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+mypy_path = "."
+# P3-6 (partial): main.py is type-checked now; migrations/scripts stay
+# excluded — alembic op-codes are dynamically typed, enabling strict mypy on
+# them is a separate cleanup commit.
+exclude = "(tests/|frontend/|migrations/|scripts/)"
+
+[[tool.mypy.overrides]]
+module = ["aiohttp.*", "yaml.*", "uvicorn.*", "prometheus_client.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "--cov=. --cov-report=term-missing --cov-fail-under=75"
+
+[tool.coverage.run]
+omit = [
+    "tests/*",
+    "frontend/*",
+    "migrations/*",
+    "scripts/*",
+    "main.py",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]

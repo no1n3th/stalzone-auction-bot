@@ -1,0 +1,37 @@
+# Прод-вариант: PostgreSQL вместо SQLite.
+# Запуск: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+services:
+  stalzone:
+    environment:
+      DATABASE_URL: postgresql+asyncpg://stalzone:${DB_PASSWORD:?set DB_PASSWORD}@db:5432/stalzone
+      LOG_JSON: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          memory: 480M
+
+  db:
+    image: postgres:16-alpine
+    container_name: stalzone-db
+    environment:
+      POSTGRES_USER: stalzone
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD}
+      POSTGRES_DB: stalzone
+    volumes:
+      - stalzone-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U stalzone -d stalzone"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+volumes:
+  stalzone-pg:
